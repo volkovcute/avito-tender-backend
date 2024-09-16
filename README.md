@@ -1,5 +1,9 @@
 # Проект на TypeScript с использованием AdonisJS и PostgreSQL
 
+## Запуск
+1. >sudo docker build -t tenderbackend .
+2. >sudo docker run -d --restart=always -p 8080:8080 tenderbackend
+
 ## Описание
 Этот проект представляет собой веб-приложение, разработанное с использованием TypeScript и фреймворка AdonisJS (MVC-архитектура). В качестве базы данных используется PostgreSQL.
 
