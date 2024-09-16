@@ -1,0 +1,32 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - echo "APP_KEY=${APP_KEY}"
+    - echo "LOG_LEVEL=${LOG_LEVEL}"
+    - echo "POSTGRES_HOST=\${POSTGRES_HOST}"
+    - echo "POSTGRES_HOST=${POSTGRES_HOST}"
+    - echo "POSTGRES_PORT=${POSTGRES_PORT}"
+    - echo "POSTGRES_USERNAME=${POSTGRES_USERNAME}"
+    - echo "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}"
+    - echo "POSTGRES_DATABASE=${POSTGRES_DATABASE}"
+    - echo "bebra"
+    - docker build -t testvolkov .
+
+deploy:
+  stage: deploy
+  script:
+    - docker run -e APP_KEY=\${APP_KEY} \
+      -e LOG_LEVEL=\${LOG_LEVEL} \
+      -e POSTGRES_HOST=\${POSTGRES_HOST} \
+      -e POSTGRES_PORT=\${POSTGRES_PORT} \
+      -e POSTGRES_USERNAME=\${POSTGRES_USERNAME} \
+      -e POSTGRES_PASSWORD=\${POSTGRES_PASSWORD} \
+      -e POSTGRES_DATABASE=\${POSTGRES_DATABASE} \
+      -e NODE_ENV=production \
+      -e PORT=8080 \
+      -e BEBRA=bebrawhois \
+      -p 8080:8080 testvolkov
