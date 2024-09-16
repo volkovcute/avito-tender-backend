@@ -4,6 +4,10 @@
 1. >sudo docker build -t tenderbackend .
 2. >sudo docker run -d --restart=always -p 8080:8080 tenderbackend
 
+## Данные для базы данных
+https://prlivnote.com/Ev24UnpR#LLWmbttv (пароль: моя почта, которая указана в анкете avito.tech вместе с этим репозиторием @gmail.com)
+
+
 ## Описание
 Этот проект представляет собой веб-приложение, разработанное с использованием TypeScript и фреймворка AdonisJS (MVC-архитектура). В качестве базы данных используется PostgreSQL.
 
